@@ -1,0 +1,97 @@
+@use "../../../styles/variables" as *;
+
+.form-checkbox {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+
+  &__label {
+    display: flex;
+    align-items: center;
+    line-height: normal;
+    gap: 0.75rem;
+    cursor: pointer;
+  }
+
+  &__input {
+    display: none;
+  }
+
+  &__custom-checkbox {
+    width: 20px;
+    height: 20px;
+    border: 1px solid $gray-medium;
+    border-radius: 6px;
+    background-color: $white;
+    cursor: pointer;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+
+    &:hover {
+      border-color: $black;
+    }
+
+    &--checked {
+      background-color: $black;
+      border-color: $black;
+    }
+
+    &--disabled {
+      cursor: not-allowed;
+      opacity: 0.6;
+      border-color: $gray-medium;
+    }
+  }
+
+  &__checkmark {
+    &__icon {
+      width: 20px;
+      height: 20px;
+    }
+    color: $white;
+    font-size: 0.75px;
+    font-weight: bold;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+
+    &--visible {
+      opacity: 1;
+    }
+
+    svg {
+      width: 20px;
+      height: 20px;
+    }
+  }
+
+  &__text {
+    font-size: 0.75rem;
+    color: $gray-dark;
+    line-height: normal;
+  }
+
+  &__required {
+    color: $red;
+    margin-left: 0.25rem;
+  }
+
+  &__error {
+    font-size: 0.75rem;
+    color: $red;
+    margin-left: 2rem;
+  }
+
+  &:hover:not(:has(input:disabled)) {
+    .form-checkbox__text {
+      color: $black;
+    }
+  }
+}

@@ -1,0 +1,151 @@
+@use "sass:color";
+@use "../../styles/variables" as *;
+
+.resume-page {
+  font-family: $font-lato;
+  padding: 2rem 2rem 4rem 2rem;
+
+  @media (min-width: 1024px) {
+    padding: 4rem 2rem 4rem 2rem;
+  }
+
+  &__container {
+    max-width: 928px;
+    margin: 0 auto;
+  }
+
+  &__title {
+    font-size: 2rem; // 32px en móvil
+    font-weight: 700;
+    color: $black;
+    margin-bottom: 2rem;
+
+    @media (min-width: 1024px) {
+      font-size: 2.5rem; // 40px en desktop
+    }
+  }
+
+
+  &__content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 3rem;
+  }
+
+  &__card {
+    width: 100%;
+    max-width: 928px;
+    background: $white;
+    border-radius: 24px;
+    padding: 24px 32px;
+    box-shadow: 0 1px 24px 0 rgba(174, 172, 243, 0.251);
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  &__section {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  &__label {
+    font-size: 10px;
+    line-height: 16px;
+    letter-spacing: 0.8px;
+    font-weight: 700;
+    color: $black;
+    text-transform: uppercase;
+    margin-top: 24px;
+  }
+
+  &__user-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 8px;
+  }
+
+  &__user-icon {
+    width: 24px;
+    height: 24px;
+    color: $black;
+    flex-shrink: 0;
+
+    svg {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  &__user-name {
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: -0.2px;
+    color: $black;
+  }
+
+  &__separator {
+    width: 100%;
+    height: 1px;
+    background: $gray-light;
+    margin: 16px 0;
+  }
+
+  &__section-title {
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 0.2px;
+    color: $black;
+    margin-top: 8px;
+  }
+
+  &__info-item {
+    font-size: 14px;
+    line-height: 24px;
+    letter-spacing: 0.1px;
+    color: $black;
+    margin-top: 4px;
+  }
+
+  &__discount {
+    font-size: 12px;
+    color: $red;
+    font-weight: 600;
+    margin-top: 8px;
+    padding: 4px 8px;
+    background: rgba($red, 0.1);
+    border-radius: 4px;
+    display: inline-block;
+  }
+
+  &__error {
+    text-align: center;
+    padding: 2rem;
+    background: $gray;
+    border-radius: 12px;
+    margin-top: 2rem;
+
+    p {
+      color: $gray-dark;
+      margin-bottom: 1rem;
+    }
+
+    button {
+      background: $red;
+      color: $white;
+      border: none;
+      padding: 0.75rem 1.5rem;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: all 0.3s ease;
+
+      &:hover {
+        background: color.adjust($red, $lightness: -10%);
+      }
+    }
+  }
+}

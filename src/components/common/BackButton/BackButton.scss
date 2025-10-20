@@ -1,0 +1,49 @@
+@use "sass:color";
+@use "../../../styles/variables" as *;
+
+.back-button {
+  background: none;
+  border: none;
+  color: $gray-medium;
+  font-size: 0.875rem;
+  cursor: pointer;
+  margin-bottom: 2rem;
+  display: none; // Ocultar en mobile por defecto
+  align-items: center;
+  gap: 0.5rem;
+  transition: color 0.3s ease;
+
+  &:hover {
+    color: $black;
+  }
+
+  // Mostrar solo en desktop
+  @media (min-width: 1024px) {
+    display: flex;
+  }
+
+  &__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid $blue-berry;
+    color: $blue-berry;
+    border-radius: 20px;
+    width: 20px;
+    height: 20px;
+    color: $blue-berry;
+    
+    &-svg {
+      width: 10px;
+      height: 10px;
+      color: $blue-berry;
+    }
+  }
+
+  &__text {
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: $blue-berry;
+  }
+}
+

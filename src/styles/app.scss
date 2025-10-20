@@ -1,0 +1,17 @@
+// Importar variables globales
+@use 'variables' as *;
+
+// Reset y base
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: $font-brsonoma;
+  line-height: 1.6;
+  color: $black;
+  box-sizing: border-box;
+}
+

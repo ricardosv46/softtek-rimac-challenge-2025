@@ -1,0 +1,79 @@
+@use "../../../styles/variables" as *;
+
+.form-field {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+
+  &__label {
+    position: absolute;
+    top: 55%;
+    left: 1rem;
+    transform: translateY(-50%);
+    font-size: 1rem;
+    font-weight: 400;
+    color: $gray-medium;
+    pointer-events: none;
+    transition: all 0.3s ease;
+  }
+
+  &__required {
+    color: red;
+    margin-left: 0.25rem;
+  }
+
+  &__input {
+    padding: 1.563rem 1rem 0.563rem 1rem ;
+    border: 1px solid $gray-medium;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    background: $white;
+    outline: none;
+    width: 100%;
+    min-height: 56px;
+
+    &:focus {
+      border-color: $primary-green;
+    }
+
+    &--error {
+      border-color: red;
+    }
+
+    &:focus + .form-field__label,
+    &:not(:placeholder-shown) + .form-field__label {
+      top: 0.4rem;
+      left: 1rem;
+      font-size: 0.75rem;
+      color: $gray-medium;
+      transform: translateY(0);
+    }
+
+    &:disabled {
+      background-color: #f8f9fa;
+      cursor: not-allowed;
+      opacity: 0.6;
+    }
+
+    &::placeholder {
+      color: transparent;
+    }
+  }
+
+  
+}
+
+
+.form-field-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 56px;
+  width: 100%;
+  &__error {
+    font-size: 0.8rem;
+    color: red;
+    margin-top: 0.25rem;
+  }
+}

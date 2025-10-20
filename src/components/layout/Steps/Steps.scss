@@ -1,0 +1,242 @@
+@use "../../../styles/variables" as *;
+
+// Variables locales del steps
+$steps-padding-mobile: 0 24px; // 24px padding lateral en móvil
+$steps-padding-desktop: 0 120px; // 120px padding lateral en desktop
+
+.steps {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  font-family: $font-lato;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  height: 56px;
+
+  &__container {
+    width: 100%;
+    max-width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0;
+    padding: $steps-padding-mobile;
+    background: $neutral-light;
+
+
+    @media (min-width: 1024px) {
+      width: auto;
+      background: $neutral;
+
+    }
+  }
+
+  &__line {
+    display: block;
+    width: 100%;
+    height: 1px;
+    background-color: $gray-light;
+    
+    // Ocultar en desktop
+    @media (min-width: 1024px) {
+      display: none;
+    }
+  }
+
+  // Mobile: Nuevo diseño
+  &__mobile {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+
+    &-container {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 1rem;
+    }
+
+  }
+
+  &__back {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: 1px solid $gray-light;
+    background: $white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+
+    svg {
+      width: 16px;
+      height: 16px;
+      color: $gray-medium;
+    }
+
+    &:hover {
+      border-color: $blue-berry;
+      background: $gray;
+
+      svg {
+        color: $blue-berry;
+      }
+    }
+  }
+
+  &__info {
+    // flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__back-icon {
+    width: 24px;
+    height: 24px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid $neutral-blue;
+    color: $neutral-blue;    
+    &--svg {
+      width: 12px;
+      height: 12px;
+      color: $neutral-blue;
+    }
+  }
+
+  &__step-text {
+    font-size: 0.625rem;
+    font-weight: 500;
+    color: $gray-dark;
+    font-family: $font-lato;
+  }
+
+  &__progress {
+    flex: 1;
+    width: 120px;
+    height: 4px;
+    background: $gray-light;
+    border-radius: 2px;
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+
+  &__progress-bar {
+    height: 100%;
+    background: $blue-berry;
+    border-radius: 2px;
+    transition: width 0.3s ease;
+  }
+
+  // Desktop: Diseño original (ocultar mobile)
+  &__desktop {
+    display: none;
+  }
+}
+
+// Desktop: Mostrar diseño original, ocultar mobile
+@media (min-width: 1024px) {
+  .steps {
+    background: $neutral;
+    height: auto;
+    height: 56px;
+
+    &__container {
+      max-width: 1360px;
+      padding: $steps-padding-desktop;
+      background: $neutral;
+      border-radius: 12px;
+    }
+
+    // Ocultar diseño mobile
+    &__mobile {
+      display: none;
+    }
+
+    // Mostrar diseño desktop original
+    &__desktop {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.75rem;
+      width: 100%;
+    }
+  }
+
+  .steps__item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    position: relative;
+  }
+
+  .steps__item-number {
+    width: 24px;
+    height: 24px;
+    font-family: $font-lato;
+    border-radius: 50%;
+    border: 2px solid $gray-light;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: $gray-medium;
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+
+    &--active {
+      background: $blue-berry;
+      border-color: $blue-berry;
+      color: $white;
+    }
+  }
+
+  .steps__item-title {
+    font-size: 1rem;
+    color: $gray-medium;
+    font-weight: 500;
+    white-space: nowrap;
+
+    &--active {
+      color: $black;
+      font-weight: 600;
+    }
+  }
+
+  .steps__connector {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-shrink: 0;
+    position: relative;
+    width: 32px;
+    height: 4px;
+    
+    &::before {
+      content: '';
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: $blue-berry;
+      position: absolute;
+      left: 0;
+      // Crear los 3 puntos adicionales con box-shadow
+      box-shadow: 
+        8px 0 0 $blue-berry,
+        16px 0 0 $blue-berry,
+        24px 0 0 $blue-berry;
+    }
+  }
+}

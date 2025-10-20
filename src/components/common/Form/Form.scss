@@ -1,0 +1,106 @@
+@use "../../../styles/variables" as *;
+
+.form {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  &__row {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  &__field {
+    display: flex;
+    flex-direction: column;
+
+    &--select {
+      position: relative;
+    }
+  }
+
+  &__checkboxes {
+    margin-top: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  &__terms {
+    font-size: 0.75rem;
+    color: $black;
+    margin-top: 0.25rem;
+    font-weight: 600;
+    text-decoration: underline;
+  }
+
+  &__terms-link {
+    color: $black;
+    text-decoration: underline;
+    cursor: pointer;
+    transition: color 0.3s ease;
+
+    &:hover {
+      color: $red;
+    }
+  }
+
+  &__button {
+    margin-top: 0.5rem;
+    align-self: flex-start;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  &__loading-icon {
+    width: 1.25rem;
+    height: 1.25rem;
+    color: currentColor;
+    animation: spin 1s linear infinite;
+
+    circle {
+      opacity: 0.25;
+    }
+
+    path {
+      opacity: 0.75;
+    }
+  }
+
+  &__error {
+    background-color: #fee;
+    border: 1px solid #fcc;
+    border-radius: 4px;
+    padding: 0.75rem;
+    margin-top: 0.5rem;
+
+    p {
+      color: #c33;
+      font-size: 0.875rem;
+      font-weight: 500;
+      margin: 0;
+    }
+  }
+}
+
+// Desktop variant
+@media (min-width: 1024px) {
+  .form--desktop {
+    .form__row {
+      grid-template-columns: 1fr 2fr;
+    }
+  }
+}
+
+// Animación para el icono de loading
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

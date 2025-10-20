@@ -1,0 +1,78 @@
+@use "sass:color";
+@use "../../../styles/variables" as *;
+
+.button {
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+
+  // Variants
+  &--black {
+    background: $black;
+    color: $white;
+
+    &:hover:not(:disabled) {
+      background: $gray-dark;
+    }
+
+    &:active:not(:disabled) {
+      transform: translateY(1px);
+    }
+  }
+
+  &--red {
+    background: $red-secondary;
+    color: $white;
+
+    &:hover:not(:disabled) {
+      background: color.adjust($red-secondary, $lightness: -10%);
+    }
+
+    &:active:not(:disabled) {
+      transform: translateY(1px);
+    }
+  }
+
+  // Sizes
+  &--small {
+    height: 48px;
+    border-radius: 32px;
+    padding: 0 2.5rem; // 40px
+    font-size: 1.125rem;
+  }
+
+  &--large {
+    height: 56px; // Mobile default
+    border-radius: 40px;
+    padding: 0 2.5rem; // 40px
+    font-size: 1.25rem;
+  }
+
+  // Width options
+  &--auto {
+    width: auto;
+  }
+
+  &--full {
+    width: 100%;
+  }
+}
+
+// Desktop - Large button height
+@media (min-width: 1024px) {
+  .button {
+    &--large {
+      height: 64px; // Desktop height
+    }
+  }
+}

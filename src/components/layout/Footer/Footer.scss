@@ -1,0 +1,142 @@
+// Importar variables globales
+@use "../../../styles/variables" as *;
+// Variables locales del footer
+$footer-padding-mobile: 0 24px; // 24px padding lateral en móvil
+$footer-padding-desktop: 0 120px; // 120px padding lateral en desktop
+
+.footer {
+  // MOBILE FIRST - Diseño móvil
+  width: 100%;
+  height: 152px;
+  display: flex;
+  justify-content: center;
+  background-color: $black;
+
+  &__container {
+    width: 100%;
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1.5rem;
+    align-items: center;
+    text-align: left;
+    padding: $footer-padding-mobile;
+  }
+
+  &__logo {
+    color: $white;
+
+    &.mobile {
+      display: block;
+      width: 138px;
+      height: 20px;
+    }
+
+    &.desktop {
+      display: none;
+      width: 85.39px;
+      height: 42px;
+    }
+  }
+
+  &__contact {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+
+    &-text {
+      font-size: 0.75rem;
+      font-weight: 400;
+      color: $gray;
+    }
+  }
+
+  &__line {
+    display: block;
+    width: 100%;
+    height: 1px;
+    background-color: $gray-dark;
+  }
+
+  &__phone {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+
+    &-icon {
+      width: 20px;
+      height: 20px;
+      color: $black;
+    }
+
+    &-number {
+      font-weight: 600;
+      color: $black;
+      font-size: 1rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    // DESKTOP - Diseño desktop
+    height: 106px;
+
+    &__container {
+      max-width: 1360px;
+      flex-direction: row;
+      justify-content: space-between;
+      padding: $footer-padding-desktop;
+    }
+
+    &__line {
+      display: none;
+    }
+
+    &__logo {
+      &.mobile {
+        display: none;
+      }
+
+      &.desktop {
+        display: block;
+      }
+
+      &-text {
+        font-size: 2rem;
+        letter-spacing: 2px;
+      }
+    }
+
+    &__contact {
+      flex-direction: row;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 1rem; 
+      display: flex;
+
+      &-text {
+        font-size: 0.875rem;
+      }
+    }
+
+    &__line {
+      max-width: 300px;
+    }
+
+    &__phone {
+      &-icon {
+        width: 20px;
+        height: 20px;
+        color: $black;
+      }
+
+      &-number {
+        font-size: 1.125rem;
+        font-weight: 700;
+        color: $black;
+      }
+    }
+  }
+}

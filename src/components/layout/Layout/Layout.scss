@@ -1,0 +1,22 @@
+// Importar variables globales
+@use "../../../styles/variables" as *;
+
+.layout {
+  display: grid;
+  min-height: 100vh;
+  grid-template-rows: auto 1fr auto;
+  background: url('../../../assets/images/fondo.png') center/cover no-repeat, $neutral;
+
+}
+
+.layout__steps {
+  display: grid;
+  min-height: 100vh;
+  grid-template-rows: auto auto 1fr;
+  background: $neutral-light;
+}
+
+.layout__content {
+  display: grid;
+  grid-template-rows:  1fr;
+}

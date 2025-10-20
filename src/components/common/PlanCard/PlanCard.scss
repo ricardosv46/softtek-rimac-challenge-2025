@@ -1,0 +1,179 @@
+@use "sass:color";
+@use "../../../styles/variables" as *;
+
+.plan-card {
+  width: 288px;
+  min-width: 288px;
+  max-width: 288px;
+  background: $white;
+  border-radius: 24px;
+  padding: 48px 32px 48px 32px;
+  box-shadow: 0 1px 24px 0 rgba(174, 172, 243, 0.251);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.5s ease;
+  opacity: 1;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 1px 32px 0 rgba(174, 172, 243, 0.35);
+  }
+
+  &__recommended {
+    position: absolute;
+    top: -25px;
+    left: 0;
+    background: $aqua;
+    color: $black;
+    padding: 0.4px 0.75rem;
+    border-radius:  6px;
+    font-size: 0.75rem;
+    font-weight: 600;
+  }
+
+  &__header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    position: relative;
+  }
+
+  &__content {
+    flex: 1;
+    margin-right: 1rem;
+  }
+
+  &__icon {
+    width: 48px;
+    height: 48px;
+    color: $gray-medium;
+    flex-shrink: 0;
+
+    svg {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  &__name {
+    font-size: 1.5rem; // text-2xl
+    font-weight: 900; // font-black
+    letter-spacing: -0.2px; // tracking-[-.2px]
+    color: $black; // text-[var(--neutrals7)]
+    margin-bottom: 0;
+  }
+
+  &__price {
+    margin-top: 24px;
+
+    &-label {
+      font-size: 0.75rem; // text-xs
+      text-transform: uppercase;
+      color: $neutral-blue; // text-[var(--neutrals6)]
+      font-weight: 900; // font-black
+      margin-bottom: 4px;
+    }
+
+    &-original {
+      font-size: 0.875rem; // text-sm
+      color: $gray-medium; // text-[var(--neutrals6)]
+      letter-spacing: -0.2px; // tracking-[-.2px]
+      text-decoration: line-through;
+      margin-bottom: 4px;
+    }
+
+    &-final {
+      font-size: 1.25rem; // text-xl
+      font-weight: 900; // font-black
+      letter-spacing: -0.2px; // tracking-[-.2px]
+      color: $black; // text-[var(--neutrals7)]
+      margin-bottom: 0;
+    }
+  }
+
+  &__discount {
+    font-size: 0.75rem;
+    color: $red;
+    font-weight: 600;
+  }
+
+  &__separator {
+    width: 100%;
+    height: 1px;
+    background: $gray-light; // bg-[var(--neutrals4)]
+    margin: 24px 0;
+  }
+
+  &__benefits {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 40px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    flex-grow: 1;
+  }
+
+  &__benefit {
+    font-size: 16px; // text-[16px]
+    line-height: 1.75; // leading-7
+    letter-spacing: 0.1px; // tracking-[.1px]
+    color: $black; // text-[var(--neutrals7)]
+    margin-left: 18px; // ml-[18px]
+    position: relative;
+
+    &::before {
+      content: "•";
+      position: absolute;
+      left: -18px;
+      color: $gray-medium;
+    }
+  }
+
+  &__button {
+    background: $red;
+    color: $white;
+    border: none;
+    border-radius: 8px;
+    padding: 0.75rem 1rem;
+    font-size: 0.875rem;
+    font-weight: 700; // font-bold
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: auto;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &:hover {
+      background: color.adjust($red, $lightness: -10%);
+    }
+
+    &:active {
+      transform: translateY(1px);
+    }
+  }
+}
+
+// Desktop
+@media (min-width: 1024px) {
+  .plan-card {
+    height: 687px;
+    padding: 4rem 2rem 2rem 2rem;
+
+    &__icon {
+      width: 56px;
+      height: 56px;
+    }
+
+    &__name {
+      font-size: 1.5rem;
+    }
+
+    &__price-final {
+      font-size: 1.25rem;
+    }
+  }
+}

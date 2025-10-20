@@ -1,0 +1,152 @@
+@use "../../styles/variables" as *;
+
+
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+// Hero section
+.hero {
+  padding-bottom: 5rem;
+  width: 100%;
+  padding: 1.5rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+
+  &__line {
+    display: block;
+    width: 100%;
+    height: 1px;
+    background-color: $gray-light;
+    margin-bottom: 1.25rem;
+  }
+
+  &__container {
+    width: 100%;
+    max-width: 100%;
+    padding: 0 24px;
+  }
+
+  // MOBILE LAYOUT
+  &__mobile {
+    display: block;
+  }
+
+  &__content-mobile {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 1rem;
+    align-items: center;
+    margin-bottom: 1.25rem;
+  }
+
+  &__text-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  &__image-mobile {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+  }
+
+  &__family-image {
+    width: 136px;
+    height: 180px;
+    border-radius: 15px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+
+  }
+
+  &__family-img {
+    width: 136px;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 15px;
+  }
+
+
+  &__title {
+    font-size: 1.75rem;
+    font-weight: 800;
+    color: $black;
+    line-height: 1.2;
+  }
+
+  &__description {
+    margin-top: 0.5rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: $black;
+    line-height: 1.6;
+  }
+
+  // DESKTOP LAYOUT
+  &__desktop {
+    display: none;
+  }
+
+}
+
+// DESKTOP - Diseño desktop
+@media (min-width: 1024px) {
+  .hero {
+    &__container {
+      max-width: 1360px;
+      padding: 0 120px;
+    }
+
+    // Ocultar móvil
+    &__mobile {
+      display: none;
+    }
+
+    // Mostrar desktop
+    &__desktop {
+      display: grid;
+      grid-template-columns: 480px 1fr;
+      gap: 8rem;
+    }
+
+    &__content-desktop {
+      display: flex;
+      flex-direction: column;
+      max-width: 351px;
+    }
+
+    &__image-desktop {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    &__family-image {
+      width: 100%;
+      height: 560px;
+    }
+
+    &__family-img {
+      object-fit: cover;
+      width: 480px;
+      height: 560px;
+    }
+
+    &__title {
+      font-size: 2rem;
+      margin-top: 1rem;
+      font-size: 2rem;
+    }
+
+  }
+}

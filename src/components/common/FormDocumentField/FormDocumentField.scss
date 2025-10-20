@@ -1,0 +1,83 @@
+@use "../../../styles/variables" as *;
+
+.form-document-field {
+  position: relative;
+  display: flex !important;
+  flex-direction: row !important;
+  gap: 0;
+  align-items: stretch;
+  min-height: 56px;
+
+  &__select {
+    flex: 0 0 auto;
+    width: 140px !important;
+    
+    // Override FormSelect styles to make it inline
+    display: flex !important;
+    flex-direction: row !important;
+    gap: 0 !important;
+    
+     .form-select__select {
+       width: 100% !important;
+       border: 1px solid $gray-medium;
+       border-top-right-radius: 0;
+       border-bottom-right-radius: 0;
+       border-right: 1px solid $gray-medium;
+      
+      // Custom dropdown arrow
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg width='14' height='9' viewBox='0 0 14 9' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M7.00003 8.89365L0.493774 2.38115L2.25628 0.618652L7.00003 5.35615L11.7438 0.618652L13.5063 2.38115L7.00003 8.89365Z' fill='%2303050F'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 12px center;
+      background-size: 14px 9px;
+      padding-right: 32px;
+    }
+  }
+
+  &__input {
+    flex: 1;
+    margin-left: 0;
+    
+    // Override FormField styles to make it inline
+    display: flex !important;
+    flex-direction: row !important;
+    min-height: auto !important;
+    
+    .form-field__input {
+      border: 1px solid $gray-medium;
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+      border-left: none;
+    }
+  }
+
+ 
+
+  // Cuando hay error, quitar los errores individuales
+  &__select .form-select__error,
+  &__input .form-field__error {
+    display: none;
+  }
+
+  // Focus states
+  &:focus-within {
+    .form-document-field__select .form-select__select,
+    .form-document-field__input .form-field__input {
+      border-color: $primary-green;
+    }
+  }
+
+  // Error state
+  &--error {
+    .form-document-field__select .form-select__select,
+    .form-document-field__input .form-field__input {
+      border-color: red;
+    }
+  }
+}
+
+.form-document-field__error {
+    font-size: 0.8rem;
+    color: red;
+    margin-top: 0.25rem;
+}

@@ -1,0 +1,25 @@
+@use "../../../styles/variables" as *;
+
+.tag {
+  display: inline-block;
+  border-radius: 4px;
+  font-weight: 600;
+  width: fit-content;
+  background: linear-gradient(135deg, #00F4E2 0%, #00FF7F 100%);
+  color: $black;
+
+    display: block;
+    padding: 0.25rem 1rem;
+    font-size: 0.75rem; // 12px mobile default
+    line-height: normal;
+}
+
+// Desktop - 14px font size
+@media (min-width: 1024px) {
+  .tag {
+      padding: 0.281rem 1rem;
+      font-size: 0.875rem; // 14px desktop
+      // height: 24px;
+
+  }
+}
