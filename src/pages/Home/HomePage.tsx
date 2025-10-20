@@ -1,5 +1,5 @@
 import "./HomePage.scss";
-import familyImage from "@/assets/images/family.png";
+import familyImage from "@/assets/images/family.webp";
 import { Tag } from "@/components/common/Tag/Tag";
 import { Form } from "@/components/common/Form/Form";
 
